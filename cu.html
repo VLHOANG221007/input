@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Đăng Nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Đăng Nhập</h2>
+        <form action="#" method="POST" onsubmit="return validateForm()">
+            <label for="fullname">Họ và Tên:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Nhập họ tên" required>
+            
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+
+            <input type="submit" value="Đăng Nhập">
+        </form>
+        <div id="error-message" class="error-message"></div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var fullname = document.getElementById('fullname').value;
+            var password = document.getElementById('password').value;
+            var errorMessage = document.getElementById('error-message');
+
+            if (fullname === "" || password === "") {
+                errorMessage.innerHTML = "Vui lòng nhập đầy đủ họ tên và mật khẩu!";
+                return false;
+            }
+            
+            // Nếu không có lỗi, sẽ giả lập đăng nhập thành công.
+            alert("Chào mừng, " + fullname + "!");
+            return false; // Ngừng gửi form thực tế để giữ trang trên trình duyệt.
+        }
+    </script>
+
+</body>
+</html>
